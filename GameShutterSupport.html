@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameShutter Support</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #0E1116;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #0E1116;
+            border-bottom: 3px solid #FF6A13;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background-color: #FF6A13;
+            border-radius: 20px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: #aaaaaa;
+            margin-top: 6px;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 20px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FF6A13;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background-color: #161b22;
+            border: 1px solid #2a2f38;
+            border-left: 4px solid #FF6A13;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+
+        .contact-card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .contact-item .icon {
+            width: 36px;
+            height: 36px;
+            background-color: #FF6A1322;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: #FF6A13;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: #161b22;
+            border: 1px solid #2a2f38;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #f0f0f0;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-family: inherit;
+        }
+
+        .faq-question:hover {
+            background-color: #1e242d;
+        }
+
+        .faq-question .arrow {
+            color: #FF6A13;
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .faq-question.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 20px;
+            color: #aaaaaa;
+            font-size: 0.95rem;
+            border-top: 1px solid #2a2f38;
+            padding-top: 16px;
+        }
+
+        .faq-answer.open {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            color: #555555;
+            font-size: 0.85rem;
+            border-top: 1px solid #1e242d;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-circle">🎬</div>
+    <h1>GameShutter</h1>
+    <p>Sports Video & Highlight Clips — Support</p>
+</header>
+
+<div class="container">
+
+    <!-- Contact Card -->
+    <h2>Contact Support</h2>
+    <div class="contact-card">
+        <p>Have a question or found a bug? Reach out and we'll get back to you as soon as possible.</p>
+        <div class="contact-item">
+            <div class="icon">✉️</div>
+            <span>Email: <a href="mailto:GameShutter.app@gmail.com">GameShutter.app@gmail.com</a></span>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            How do I mark a highlight while recording?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Tap the highlight button (the orange button with a running figure) at any moment during recording. GameShutter will automatically export a 10-second clip around that moment when you stop recording.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            Where are my highlight clips saved?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Highlight clips are saved to your Photos library inside a folder called <strong>GameShutter</strong>, organized into albums by date (e.g. 2026_11_01). You can also browse them directly inside the GameShutter app using the video editor.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            Can I pause recording and resume?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Yes. Tap the Pause button during recording to pause. Tap the Record button again to resume. The pause gap is removed from the final video automatically — it plays back seamlessly.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            Why is my highlight clip missing?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Highlights marked in the first 9 seconds of a recording are skipped, since there isn't enough footage before the marked moment to fill the clip. Try marking highlights after at least 10 seconds of recording.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            How do I use the video editor?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Tap the film strip icon next to the settings gear on the camera screen. This opens your highlight library. Tap a date folder to open its clips in the editor, or tap the <strong>+</strong> card to start a blank project. In the editor you can trim clips, add background music, and export at 720p, 1080p, or 4K.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            How do I share to Instagram or TikTok?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            After exporting from the editor, a share card appears with an Instagram button and a More button. Instagram opens the app with your video pre-selected. More opens the iOS share sheet, which includes TikTok, WhatsApp, AirDrop, Messages, and other apps you have installed.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            Does GameShutter work on iPhone?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            Yes, GameShutter runs on both iPad and iPhone (iOS 12.4 or later). The layout is optimized for iPad's larger screen, but all features work on iPhone.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggle(this)">
+            Does the app collect any of my data?
+            <span class="arrow">▼</span>
+        </button>
+        <div class="faq-answer">
+            No. GameShutter does not collect, transmit, or share any personal data. All recordings and clips stay on your device. The app works entirely offline.
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 GameShutter. All rights reserved.
+</footer>
+
+<script>
+    function toggle(btn) {
+        const answer = btn.nextElementSibling;
+        const isOpen = answer.classList.contains('open');
+        document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+        document.querySelectorAll('.faq-question').forEach(b => b.classList.remove('open'));
+        if (!isOpen) {
+            answer.classList.add('open');
+            btn.classList.add('open');
+        }
+    }
+</script>
+
+</body>
+</html>
